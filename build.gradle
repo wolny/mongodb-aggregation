@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'jetty'
+apply plugin: 'war'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+version = '1.0'
+group = "com.kmug"
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springVersion = "3.2.4.RELEASE"
+    mongoDriverVersion = "2.10.1"
+    junitVersion = "4.11"
+}
+
+dependencies {
+    compile("org.mongodb:mongo-java-driver:${mongoDriverVersion}")
+    compile("org.apache.httpcomponents:httpclient:4.2.1")
+    providedCompile("javax.servlet:servlet-api:2.5")
+    compile("joda-time:joda-time:2.3")
+    compile("org.springframework:spring-webmvc:${springVersion}")
+    compile("org.codehaus.jackson:jackson-mapper-asl:1.9.13")
+    compile("com.google.guava:guava:15.0")
+    testCompile("junit:junit:${junitVersion}")
+}
+
+jettyRunWar.contextPath = ''
+
+
