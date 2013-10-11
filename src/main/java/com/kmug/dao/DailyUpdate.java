@@ -7,7 +7,7 @@ import org.joda.time.DateTime;
 import java.util.Date;
 
 /**
- * @author Osgi
+ * @author Adrian Wolny
  */
 public class DailyUpdate extends UpdateObject {
     @Override
