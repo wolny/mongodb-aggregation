@@ -18,11 +18,13 @@ import java.util.concurrent.TimeUnit;
  * @author Adrian Wolny
  */
 public class SamplesGenerator {
+
+
     public static void main(String[] args) throws IOException, ParseException {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         ResponseHandler<Void> handler = new StringResponseHandler();
 
-        SamplesGenerator generator = new SamplesGenerator(100.0, 50.0, "2013-10-28", "2013-10-29");
+        SamplesGenerator generator = new SamplesGenerator(100.0, 50.0, "2013-10-20", "2013-10-29");
         double sum = 0.0;
         long count = 0;
         for (int i = 0; i < COUNT; i++) {
@@ -36,7 +38,8 @@ public class SamplesGenerator {
         System.out.println("Avg. request processing time: " + (sum / count) + " ms");
     }
 
-    private static final int COUNT = 10000;
+    private static final int COUNT = 5000;
+    public static final String CONTENT_TYPE = "application/json";
 
     private static class StringResponseHandler implements ResponseHandler<Void> {
         @Override
@@ -47,7 +50,7 @@ public class SamplesGenerator {
     }
 
     private static final String DATE_FORMAT = "yyyy-MM-dd";
-    private static final String SAMPLE_RESOURCE = "sampleResource";
+    private static final String SAMPLE_RESOURCE = "xxx666";
 
     private final URI uri;
     private final double mean;
@@ -96,7 +99,7 @@ public class SamplesGenerator {
                         getMean() + getStdDev() * ThreadLocalRandom.current().nextGaussian(),
                         genRandomDate()));
         StringEntity input = new StringEntity(json);
-        input.setContentType("application/json");
+        input.setContentType(CONTENT_TYPE);
         result.setEntity(input);
         return result;
     }
