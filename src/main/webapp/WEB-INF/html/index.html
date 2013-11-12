@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Krakow MongoDB User Group</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts-more.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap-theme.min.css"/>
+    <link rel="icon" href="http://media.mongodb.org/favicon.ico" type="image/icon"/>
+</head>
+
+<body>
+
+<form class="well form-inline" id="aggForm">
+    <input type="text" class="input-small" placeholder="Resource Name" id="resourceName"/>
+    <input type="text" class="input-small" placeholder="Start Date" id="startDate"/>
+    <input type="text" class="input-small" placeholder="End Date" id="endDate"/>
+    <button type="submit" class="btn btn-primary">Get Resources</button>
+    <div id="docsNo"></div>
+</form>
+
+<div id="container" style="width:100%; height:600px;"></div>
+
+<script src="resources/js/client.js"></script>
+</body>
+</html>

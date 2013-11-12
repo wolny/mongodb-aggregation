@@ -12,7 +12,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
+import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 
 import java.net.UnknownHostException;
 
@@ -22,13 +25,24 @@ import java.net.UnknownHostException;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.kmug")
-public class Config {
+public class Config extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
 
     @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/view/");
-        resolver.setSuffix(".jsp");
+    public VelocityConfigurer velocityConfig() {
+        VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
+        velocityConfigurer.setResourceLoaderPath("/WEB-INF/html/");
+        return velocityConfigurer;
+    }
+
+    @Bean
+    public VelocityViewResolver viewResolver() {
+        VelocityViewResolver resolver = new VelocityViewResolver();
+        resolver.setSuffix(".html");
         return resolver;
     }
 

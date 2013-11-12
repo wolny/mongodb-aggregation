@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Adrian Wolny
  */
 @Controller
+@RequestMapping("/")
 public class KmugController {
-    @RequestMapping("kmug")
-    public String loadKmugHome() {
-        return "kmugHome";
+    @RequestMapping
+    public String loadHomePage() {
+        return "index";
     }
 }

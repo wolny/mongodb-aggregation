@@ -14,7 +14,7 @@ Two JSON REST services are exposed to the client:
 * to collect numerical time series for a given resource (URI template: /rest/collector)
 
 To run the application type: gradlew jettyRunWar
-Application home page can be seen at: http://localhost:8080/kmug
+Application home page can be seen at: http://localhost:8080/
 Date format to be used to specify time range in the main form: 'yyyy-MM-dd_HH:mm:ss'
 
 In order to generate normally distributed sample data for a given time range use SamplesGenerator class, for which you can specify:
