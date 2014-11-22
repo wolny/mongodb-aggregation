@@ -10,12 +10,15 @@ These statistics must be computed almost instantly (from milliseconds up to a se
 
 Application is based on Spring MVC deployed to Jetty web server.
 Two JSON REST services are exposed to the client:
-* to retrieve real-time statistics aggregated by hour for a given time range (URI template: /rest/{resource}/{start}/{end})
-* to collect numerical time series for a given resource (URI template: /rest/collector)
+* to retrieve real-time statistics aggregated by hour for a given time range (URI template: ```/rest/{resource}/{start}/{end}```)
+* to collect numerical time series for a given resource (URI template: ```/rest/collector```)
 
-To run the application type: gradlew jettyRunWar
-Application home page can be seen at: http://localhost:8080/
-Date format to be used to specify time range in the main form: 'yyyy-MM-dd_HH:mm:ss'
+To run the application type: 
+```
+gradlew jettyRunWar
+```
+Application home page can be seen at: http://localhost:8080
+Date format to be used to specify time range in the main form: ```yyyy-MM-dd_HH:mm:ss```
 
 In order to generate normally distributed sample data for a given time range use SamplesGenerator class, for which you can specify:
 * the name of the resource to be analyzed
